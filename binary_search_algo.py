@@ -1,9 +1,3 @@
-# a function that takes a list and target parameter
-# multiple vars: middle, start, end, steps
-# recursion or while loop
-# increase the steps each time a split is done
-# conditions to track target position
-
 def binary_search(list, element):
     # variable instantiation
     middle = 0
@@ -11,14 +5,14 @@ def binary_search(list, element):
     stepNumber = 0
     end = len(list)
 
-    while(start <= end):
+    while(start <= end): # while loop
 
         print("Step ", stepNumber, ": ", str(list[start:end+1]))
 
-        stepNumber += 1
+        stepNumber += 1 # increase steps each time a split is done
         middle = (start + end) // 2
 
-        if element == list[middle]:
+        if element == list[middle]: #if/else elements to track target position
             return middle
         if element < list[middle]:
             end = middle - 1
@@ -27,7 +21,10 @@ def binary_search(list, element):
 
     return -1
 
-my_list = [1,2,3,4,5,6,7,8,9]
-target = 2
+my_list = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+target = int(input("> Enter a target between 1 and 20: "))
 
 binary_search(my_list,target)
+
+# in the case of time constraints binary search could be quicker than
+# linear search, as it does not have to 'look at every result' when searching.
