@@ -5,8 +5,29 @@
 # conditions to track target position
 
 def binary_search(list, element):
-    middle, start, stepNumber = 0
+    # variable instantiation
+    middle = 0
+    start = 0
+    stepNumber = 0
     end = len(list)
 
     while(start <= end):
+
         print("Step ", stepNumber, ": ", str(list[start:end+1]))
+
+        stepNumber += 1
+        middle = (start + end) // 2
+
+        if element == list[middle]:
+            return middle
+        if element < list[middle]:
+            end = middle - 1
+        else:
+            start = middle + 1
+
+    return -1
+
+my_list = [1,2,3,4,5,6,7,8,9]
+target = 2
+
+binary_search(my_list,target)
